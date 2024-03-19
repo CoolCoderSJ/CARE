@@ -57,7 +57,7 @@
             background-position: center;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
-            width: 500px;
+            width: 520px;
         }
 
         @media (max-width: 768px) {
@@ -70,11 +70,11 @@
             box-sizing: border-box;
             object-fit: cover;
             position: absolute;
-            height: 280px;
+            height: 370px;
             margin-left: -32px;
             margin-top: -32px;
             border-radius: 8px;
-            width: 500px;
+            width: 520px;
             z-index: 1;
         }
 
@@ -85,7 +85,7 @@
         }
 
         .card_overlay {
-          background: rgba(0, 0, 0, 0.4);
+          background: rgba(0, 0, 0, 0.5);
           z-index: 2;
         }
 
@@ -166,16 +166,15 @@
 
 
 
-  <section class="bg-white dark:bg-gray-900 h-[70vh]">
+  <section class="bg-white dark:bg-gray-900 h-[75vh] flex justify-center align-center" style="background-image: url('/images/about_cover.png'); background-size: cover; background-position: center;">
     <!-- <div class="relative w-full">
         <div class="absolute top-[100px] left-[450px] w-72 h-72 bg-[#c8ee89] rounded-full opacity-50 mix-blend-multiply filter blur-xl animate-blob"></div>
         <div class="absolute top-[100px] right-[350px] w-72 h-72 bg-[#d2f98d] rounded-full opacity-50 mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         <div class="absolute top-[200px] left-[550px] w-72 h-72 bg-[#8ac779] rounded-full opacity-50 mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div> -->
-
-    <div class="h-full py-8 px-4 mx-auto max-w-screen-xl text-center flex flex-col justify-center align-center lg:py-16 lg:px-12">
-        <h1 class="mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml3">Our Mission</h1>
-        <p class="mainText wow fadeInUp mb-8 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">We strive to <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#669359] from-[#8ac779]">empower</span> today's youth to <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#669359] from-[#8ac779]">rewrite the narrative</span> of cancer through awareness, impactful research, and comprehensive education, fostering hope, resilience, and triumph.</p>
+    <div class="display-[inline] h-[fit-content] py-4 mx-auto w-[500px] rounded-md text-center flex flex-col justify-center align-center lg:py-8" style="align-self: center; background-color: rgba(255, 255, 255, 0.75);">
+        <h1 class="w-[fit-content] display-[inline] mb-4 text-4xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white ml3" style="align-self: center;">Our Mission</h1>
+        <p class="w-[75%] display-[inline] mainText wow fadeInUp text-lg font-normal text-gray-900 lg:text-xl dark:text-gray-400" style="align-self: center;">We strive to <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#669359] from-[#8ac779]">empower</span> today's youth to <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#669359] from-[#8ac779]">rewrite the narrative</span> of cancer through awareness, impactful research, and comprehensive education, fostering hope, resilience, and triumph.</p>
     </div>
 </section>
 
@@ -184,22 +183,38 @@
         <div class="max-w-screen-md mb-8 lg:mb-16">
             <h2 class="wow fadeInUp mb-4 text-4xl tracking-tight font-extrabold dark:text-white">What We Stand For</h2>
         </div>
-        <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
-            <div>
-                <h3 class="wow fadeInUp mb-2 text-[#8ac779] text-xl font-bold dark:text-white">Cancer</h3>
-                <p class="wow fadeInUp text-gray-500 dark:text-gray-400">Cancer is a mutation-driven disease, leading to the possibility of traveling infinite different paths from start to finish. Originated from cells and capable of influencing the entire body, the rapid expansion leads to missed or complicated diagnoses that harm patients. Although cancer is essentially simple, we still misunderstand the true actions that get cancer going. The complexity of each individual tumor, although pushing new forms of treatment, brings about astonishing space to recourse and address. At CARE, we introduce and expand on the questions behind its life and the patients affected by it.</p>
+        <div class="flex flex-col align-center">
+            
+            <div class="h-[fit-content] w-screen flex flex-wrap max-w-screen-xl px-2 py-4 mx-auto lg:gap-8 justify-center items-center">
+                <a class="wow fadeInUp card h-[370px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
+                    <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
+                    <div class="card_overlay"></div>
+                    <h5 class="mb-6 text-4xl font-bold tracking-tight text-white dark:text-white show">Cancer</h5>
+                    <p class="font-normal text-md text-white dark:text-gray-400 show">Cancer is a mutation-driven disease, leading to the possibility of traveling infinite different paths from start to finish. Originated from cells and capable of influencing the entire body, the rapid expansion leads to missed or complicated diagnoses that harm patients. Although cancer is essentially simple, we still misunderstand the true actions that get cancer going. The complexity of each individual tumor, although pushing new forms of treatment, brings about astonishing space to recourse and address. At CARE, we introduce and expand on the questions behind its life and the patients affected by it.</p>
+                </a>
+        
+                <a class="wow fadeInUp card h-[370px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
+                    <img src="/images/about_a.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
+                    <div class="card_overlay"></div>
+                    <h5 class="mb-6 text-4xl font-bold tracking-tight text-white dark:text-white show">Awareness</h5>
+                    <p class="font-normal text-md text-white dark:text-gray-400 show">Cancer awareness primarily shares information regarding signs, markers, symptoms, and situations in which cancer may develop. We support resources for youth to better understand people with cancer, and learn about how cancer affects everyone. We advocate for proper treatment in all regions of the country, with an emphasis on acknowledging equity gaps within our area where people do not have access to treatment. At CARE, we help provide answers and pathways for change in your community.</p>
+                </a>
             </div>
-            <div>
-                <h3 class="wow fadeInUp mb-2 text-[#8ac779] text-xl font-bold dark:text-white">Awareness</h3>
-                <p class="wow fadeInUp text-gray-500 dark:text-gray-400">Cancer awareness primarily shares information regarding signs, markers, symptoms, and situations in which cancer may develop. We support resources for youth to better understand people with cancer, and learn about how cancer affects everyone. We advocate for proper treatment in all regions of the country, with an emphasis on acknowledging equity gaps within our area where people do not have access to treatment. At CARE, we help provide answers and pathways for change in your community.</p>
-            </div>
-            <div>
-                <h3 class="wow fadeInUp mb-2 text-[#8ac779] text-xl font-bold dark:text-white">Research</h3>
-                <p class="wow fadeInUp text-gray-500 dark:text-gray-400">Cancer research is a deep and comprehensive field, with unbridled limits encouraging us to continue and support research done across the world. By communicating the research's key-moments, magnitude, and presence within the community, organizations like the American Cancer Society, which we donate to, can play an invaluable role in the trajectory of finding more sustainable and less damaging treatment options for cancer patients.  </p>
-            </div>
-            <div>
-                <h3 class="wow fadeInUp mb-2 text-[#8ac779] text-xl font-bold dark:text-white">Education</h3>
-                <p class="wow fadeInUp text-gray-500 dark:text-gray-400">At CARE, we take the responsibility to engage our peers with guest speakers, so we provide them with relevant and pressing information so they can be well informed. A solid foundation in cancer's most fundamental role within society gives way for inquisitive minds to grasp what role they want to play in the future.</p>
+        
+            <div class="h-[fit-content] w-screen flex max-w-screen-xl px-2 py-4 mx-auto lg:gap-8 justify-center items-center">      
+                <a class="wow fadeInUp card h-[370px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
+                    <img src="/images/about_r.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
+                    <div class="card_overlay"></div>
+                    <h5 class="mb-6 text-4xl font-bold tracking-tight text-white dark:text-white show">Research</h5>
+                    <p class="font-normal text-md text-white dark:text-gray-400 show">Cancer research is a deep and comprehensive field, with unbridled limits encouraging us to continue and support research done across the world. By communicating the research's key-moments, magnitude, and presence within the community, organizations like the American Cancer Society, which we donate to, can play an invaluable role in the trajectory of finding more sustainable and less damaging treatment options for cancer patients.</p>
+                </a>
+
+                <a class="wow fadeInUp card h-[370px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
+                    <img src="/images/about_e.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
+                    <div class="card_overlay"></div>
+                    <h5 class="mb-6 text-4xl font-bold tracking-tight text-white dark:text-white show">Education</h5>
+                    <p class="font-normal text-md text-white dark:text-gray-400 show">At CARE, we take the responsibility to engage our peers with guest speakers, so we provide them with relevant and pressing information so they can be well informed. A solid foundation in cancer's most fundamental role within society gives way for inquisitive minds to grasp what role they want to play in the future.</p>
+                </a>
             </div>
         </div>
     </div>
