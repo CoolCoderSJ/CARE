@@ -24,6 +24,7 @@
                 extend: {
                 animation: {
                     blob: 'blob 10s infinite',
+                    'infinite-scroll': 'infinite-scroll 40s linear infinite',
                 },
                 keyframes: {
                     blob: {
@@ -39,6 +40,10 @@
                     '75%': {
                         transform: 'translate(-20px, -15px) scale(0.9)',
                     },
+                    },
+                    'infinite-scroll': {
+                        from: { transform: 'translateX(0)' },
+                        to: { transform: 'translateX(-100%)' },
                     },
                 },
                 },
@@ -127,6 +132,9 @@
             height: 200px;
             width: 200px;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -287,10 +295,88 @@
 
   <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div class="max-w-screen-md mb-8 lg:mb-16">
+        <div class="max-w-screen-md mb-6 lg:mb-12">
             <h2 class="wow fadeInUp mb-4 text-4xl tracking-tight font-extrabold dark:text-white">Research & Design Team</h2>
         </div>
-        <div class="grid gap-8 mb-6 lg:mb-16 grid-cols-2">
+        <div x-data="{}"
+        x-init="$nextTick(() => {
+            let ul = $refs.logos;
+            ul.insertAdjacentHTML('afterend', ul.outerHTML);
+            ul.nextSibling.setAttribute('aria-hidden', 'true');
+        })"
+        class="w-full inline-flex flex-nowrap  [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] overflow-hidden">
+            <ul x-ref="logos" class="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
+                <li class="w-[200px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Snigdha Yandra</a>
+                    </h3>
+                </li>
+                <li class="w-[250px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Anish Ramachandruni</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Diya Sonth</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Melinda Wu</a>
+                    </h3>
+                </li>
+                <li class="w-[200px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Nandini Jariwala</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Olivia Shen</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Roshni Patel</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Sahana Sivam</a>
+                    </h3>
+                </li>
+                <li class="w-[200px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Sai Kunchakuri</a>
+                    </h3>
+                </li>
+                <li class="w-[200px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Sarah Reynolds</a>
+                    </h3>
+                </li>
+                <li class="w-[200px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Serena Thomas</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Sophia Ramos</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Yashas Singh</a>
+                    </h3>
+                </li>
+                <li class="w-[150px]">
+                    <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <a>Zaki Ali</a>
+                    </h3>
+                </li>
+            </ul>                
         </div>
     </div>
  </section>
@@ -338,6 +424,7 @@
     </div>
 </footer>
 
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script>
