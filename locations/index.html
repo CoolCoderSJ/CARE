@@ -76,6 +76,18 @@
           background-repeat: no-repeat;
           background-size: cover;
         }
+        .people-photo {
+            clip-path: circle();
+            /*height: 200px;*/
+        }
+        .people-circle {
+            height: 150px;
+            width: 150px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -129,136 +141,223 @@
 </section>
 
 <section class="bg-white dark:bg-gray-900 mt-24">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
-        <div class="grid gap-8 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3">
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/anish.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">North Allegheny HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Pittsburgh, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Anish Kondoju</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/isabel.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Upper St. Clair HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Pittsburgh, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Isabel Vilensky</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Mount Lebanon HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Pittsburgh, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Leah Keen</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Central Bucks South HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Philadelphia, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Amritha Sakamuri</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/maggie.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">State College Area HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">State College, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Maggie Wang</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/melinda.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">State College Area HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">State College, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Melinda Wu</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/daniela.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Northwest Christian HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Phoenix, AZ</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Daniela Bergerson</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/prisha.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">H.B. Plant HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Tampa, FL</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Prisha Ranjan</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/zaki.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Pennsbury HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Philadelphia, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Zaki Ali</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/mariah.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">James Logan HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">San Francisco, CA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Mariah Ruvalcaba</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Castilleja HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">San Francisco, CA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Kailee Kuan</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/aryan.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Wheeler HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Marietta, GA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Aryan Agar</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/vihaan.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Wheeler HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Marietta, GA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Vihaan Anumala</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Lassiter HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Marietta, GA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Niharika Raman</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Walton HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Marietta, GA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Himanshi Khakharia, Nihal Viswanathan</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Norwin HS</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">Philadelphia, PA</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Gannon Conboy</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/people/aditi.jpeg" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Houston</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">General Houston Area</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Aditi Motha</p>
-            </a>
-            <a class="wow fadeInUp card h-[225px] block p-8 pb-4 border border-gray-200 rounded-lg shadow dark:border-gray-700">
-                <img src="/images/about_c.png" class="card_bg_img shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
-                <div class="card_overlay"></div>
-                <h5 class="mb-2 text-3xl font-bold tracking-tight text-white dark:text-white show">Dubai</h5>
-                <p class="font-semibold text-lg text-white dark:text-gray-400 show">General Dubai Area</p>
-                <p class="font-normal text-md text-white dark:text-gray-400 show">Director: Arna Gupta</p>
-            </a>
-            
-        </div>  
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 flex flex-col justify-center items-center">
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">Pittsburgh, PA (HQ!)</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/anish.png">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Anish Kondoju</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        <div class="wow fadeInUp justify-center items-center mb-12 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/isabel.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Isabel Vilensky</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">North Allegheny HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Anish Kondoju</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Upper St. Clair HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Isabel Vilensky</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Mt. Lebanon HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Leah Keen</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">Philadelphia, PA</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/zaki.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Zaki Ali</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Central Bucks South HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Amritha Sakamuri</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Pennsbury HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Zaki Ali</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Norwin HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Gannon Conboy</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">State College, PA</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/maggie.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Maggie Wang</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/melinda.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Melinda Wu</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div></div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">State College Area HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Maggie Wang, Melinda Wu</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">Phoenix, AZ</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/daniela.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Daniela Bergerson</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div></div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Northwest Christian HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Daniela Bergerson</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">Tampa, FL</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/prisha.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Prisha Ranjan</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div></div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">H.B. Plant HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Prisha Ranjan</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">San Francisco, CA</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/mariah.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Mariah Ruvalcaba</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-2 justify-center items-center w-full">
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">James Logan HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Mariah Ruvalcaba</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Castilleja HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Kailee Kuan</p>
+            </div>
+        </div>
+
+        <br><br>
+        <h5 class="wow fadeInUp mt-0 mb-8 text-center text-4xl font-bold tracking-tight show">Marietta, GA</h5>
+        <div class="flex flex-wrap gap-8">
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/aryan.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Aryan Agar</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        <div class="wow fadeInUp justify-center items-center mb-8 items-center rounded-lg sm:flex dark:bg-gray-800 dark:border-gray-700 flex-wrap">
+            <div class="people-circle">
+                <img class="people-photo w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="/images/people/vihaan.jpeg">
+            </div>
+            <div class="p-5">
+                <h3 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <a>Vihaan Anumala</a>
+                </h3>
+                <span class="text-lg text-gray-500 dark:text-gray-400">Regional Director</span>
+            </div>
+        </div>
+        </div>
+        <div class="grid gap-8 mt-4 mb-6 lg:mb-16 grid-cols-1 md:grid-cols-3 justify-center items-center w-full">
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Wheeler HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Aryan Agar, Vihaan Anumala</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Lassiter HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Niharika Raman</p>
+            </div>
+            <div class="wow fadeInUp block text-center">
+                <h5 class="mb-2 text-3xl font-semibold tracking-tight show">Walton HS</h5>
+                <p class="font-normal text-md dark:text-gray-400 show">Chapter Head: Himanshi Khakharia, Nihal Viswanathan</p>
+            </div>
+        </div>
     </div>
   </section>
 
