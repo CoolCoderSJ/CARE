@@ -21,6 +21,8 @@ export default {
         "color-700": "var(--color-700)",
         "color-800": "var(--color-800)",
         "color-900": "var(--color-900)",
+
+        "purple": "var(--purple)",
       },
     },
   },

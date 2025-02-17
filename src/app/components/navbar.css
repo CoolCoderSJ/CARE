@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   font-family: var(--font-hoss-normal);
 }
 
@@ -29,25 +29,23 @@
   display: flex;
 }
 
-@media (max-width: 768px) {
-  .navbar-menu {
-    display: none;
+@media screen and (max-width: 768px) {
+  .navbar {
     flex-direction: column;
-    width: 100%;
-    background-color: #4CAF50;
-    padding: 1rem 0;
+    padding: 0 1rem;
+  }  
+  
+  .navbar a {
+    margin: 0 .5rem;
   }
+}
 
-  .navbar-menu.is-open {
-    display: flex;
-  }
+.navbar-logo {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
 
-  .navbar-menu a {
-    margin: 0.5rem 0;
-    text-align: center;
-  }
-
-  .navbar-toggle {
-    display: block;
-  }
+.navbar-logo:hover {
+  transform: scale(1.1);
 }

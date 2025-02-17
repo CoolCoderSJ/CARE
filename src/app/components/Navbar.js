@@ -4,25 +4,19 @@ import React, { useState } from 'react';
 import './navbar.css';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <nav className="bg-color-400 navbar">
-      <div className="navbar-brand">
-        <a href="/">Brand</a>
-        <button className="navbar-toggle" onClick={toggleMenu}>
-          ☰
-        </button>
+    <nav className="bg-color-400 navbar sticky top-0 z-50">
+      <div className="navbar-brand justify-between items-center px-4 w-full hidden md:flex">
+        <a href="/" className='block' style={{ margin: "1rem 0" }}>
+          <img src="/logo.png" alt="Logo" className="navbar-logo" />
+        </a>
       </div>
-      <div className={`navbar-menu ${isOpen ? 'is-open' : ''}`}>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/services">Services</a>
-        <a href="/contact">Contact</a>
+      <div className={`navbar-menu pl-0 p-6 md:p-0`}>
+        <a href="/" className="transition-colors duration-300 ease-in-out">Home</a>
+        <a href="/about" className="transition-colors duration-300 ease-in-out">About</a>
+        <a href="/events" className="transition-colors duration-300 ease-in-out min-w-[fit-content]">Past Events</a>
+        <a href="/branches" className="transition-colors duration-300 ease-in-out">Branches</a>
+        <a href="/team" className="transition-colors duration-300 ease-in-out">Team</a>
       </div>
     </nav>
   );
