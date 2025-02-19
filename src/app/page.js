@@ -20,6 +20,10 @@ export default function Home() {
   const features = ["Awareness", "Research", "Education"];
   const controls = useAnimation();
   const { ref, inView } = useInView();
+  const { ref: mainRef, inView: mainInView } = useInView();
+  const { ref: eventsRef, inView: eventsInView } = useInView();
+  const { ref: numbersRef, inView: numbersInView } = useInView();
+  const { ref: stayUpToDateRef, inView: stayUpToDateInView } = useInView();
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -72,10 +76,11 @@ export default function Home() {
   return (
     <div className="pattern-back min-h-screen">
       <motion.main 
+        ref={mainRef}
         className="p-12 pt-36 md:pt-12 bg-[url('/bg.svg')] bg-cover bg-center flex flex-col gap-0 row-start-2 items-center justify-start text-center sm:items-start min-h-[75vh]"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        animate={mainInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1, delay: mainInView ? 0.5 : 0 }}
       >
         <motion.h1 
           className="w-full text-[4.5rem] md:text-[10rem] mb-0 font-semibold text-color-900 --font-summer-loving-sans" 
@@ -106,7 +111,11 @@ export default function Home() {
         </motion.div>
       </motion.main>
 
-      <section className="p-4 md:p-12 text-center row-start-2 grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center min-h-[60vh] pt-16" style={{ placeItems: "center" }}>     
+      <section 
+        ref={eventsRef}
+        className="p-4 md:p-12 text-center row-start-2 grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center min-h-[60vh] pt-16" 
+        style={{ placeItems: "center" }}
+      >     
         <div className="flex flex-col md:flex-row w-full col-span-3 mx-auto mt-10">
             <div className="w-full md:w-1/3 flex md:flex-col border-r">
               {features.map((tab, index) => (
@@ -200,12 +209,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="text-center flex gap-8 justify-center items-center min-h-[100vh] mt-24 pt-8 relative">
+      <section 
+        ref={eventsRef}
+        className="text-center flex gap-8 justify-center items-center min-h-[100vh] mt-24 pt-8 relative"
+      >
           <motion.h1 
             className="--font-summer-loving-sans col-span-3 font-bold text-[7rem] leading-none text-color-300 md:text-color-800 bg-[rgba(0,0,0,0.6)] md:bg-[transparent] pb-8 mb-8 z-10 w-[fit-content] p-4 rounded-xl"
             initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1 }}
+            animate={eventsInView ? { scale: 1 } : { scale: 0.8 }}
+            transition={{ duration: 1, delay: eventsInView ? 0.5 : 0 }}
           >
             Our Events
             <div className="flex items-center w-full justify-center gap-4 mt-4">
@@ -218,8 +230,8 @@ export default function Home() {
                 key={index} 
                 className={`hexagon ${index == 4 ? 'hidden' : ''} md:inline-grid`}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: index * 0.2 }}
+                animate={eventsInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 1, delay: eventsInView ? index * 0.2 : 0 }}
               >
                 <Image src={file} alt={`Event ${index}`} layout="fill" objectFit="cover" className="hexagon-image" />
               </motion.div>
@@ -228,19 +240,20 @@ export default function Home() {
       </section>
 
       <motion.section 
+        ref={numbersRef}
         className="p-12 text-center grid grid-cols-1 sm:grid-cols-3 gap-8 justify-center min-h-[60vh] pt-8 mt-24" 
         style={{ placeItems: "center" }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1, delay: numbersInView ? 0.5 : 0 }}
       >
         <h1 className="--font-summer-loving-sans col-span-3 font-bold text-[7rem] leading-none w-full text-color-800 mb-4" style={{ transform: "rotate(-4deg)" }}>By The Numbers</h1>
         
         <motion.div 
           className="col-span-3 md:col-span-1 text-center flex flex-col items-center justify-center gap-4 bg-[url('/blob3.svg')] w-[80vw] md:w-[22vw] md:h-[22vw] h-[80vw] bg-no-repeat bg-center pb-8"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1, delay: numbersInView ? 0.3 : 0 }}
         >
           <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-summer-loving-sans text-color-900">500+</h1>
           <p className="ml-6 w-full text-2xl text-color-900 font-semibold">Members worldwide</p>
@@ -249,8 +262,8 @@ export default function Home() {
         <motion.div 
           className="col-span-3 md:col-span-1 text-center flex flex-col items-center justify-center gap-4 bg-[url('/blob2.svg')] w-[80vw] md:w-[22vw] md:h-[22vw] h-[80vw]  bg-no-repeat bg-center pb-8"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1, delay: numbersInView ? 0.6 : 0 }}
         >
           <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-summer-loving-sans text-color-900">$27k+</h1>
           <p className="ml-6 w-full text-3xl text-color-900 font-semibold">raised</p>
@@ -259,8 +272,8 @@ export default function Home() {
         <motion.div 
           className="col-span-3 md:col-span-1 text-center flex flex-col items-center justify-center gap-4 bg-[url('/blob.svg')] w-[80vw] md:w-[22vw] md:h-[22vw] h-[80vw]  bg-no-repeat bg-center pb-8"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1, delay: numbersInView ? 0.9 : 0 }}
         >
           <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-summer-loving-sans text-color-900">40+</h1>
           <p className="ml-6 w-full text-3xl text-color-900 font-semibold">Chapters</p>
@@ -268,11 +281,12 @@ export default function Home() {
       </motion.section>
 
       <motion.section 
+        ref={stayUpToDateRef}
         className="p-12 text-center gap-8 justify-center min-h-[40vh] pt-8 mt-12" 
         style={{ placeItems: "center" }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        animate={stayUpToDateInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1, delay: stayUpToDateInView ? 0.5 : 0 }}
       >
         <h1 className="--font-summer-loving-sans col-span-3 font-bold text-[7rem] leading-none w-full text-color-800">Stay Up To Date</h1>
         <p className="italic col-span-3 text-2xl text-gray-500 mb-4">Wait...what's that? Lebron James is saying to follow @curingwithcare everywhere?</p>
@@ -281,6 +295,9 @@ export default function Home() {
           <motion.a 
             href="/" 
             className="relative inline-block text-lg group"
+            initial={{ opacity: 0 }}
+            animate={stayUpToDateInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 1, delay: stayUpToDateInView ? 0.3 : 0 }}
             whileHover={{ scale: 1.1 }}
           >
               <span
@@ -296,6 +313,9 @@ export default function Home() {
           <motion.a 
             href="/" 
             className="relative inline-block text-lg group"
+            initial={{ opacity: 0 }}
+            animate={stayUpToDateInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 1, delay: stayUpToDateInView ? 0.6 : 0 }}
             whileHover={{ scale: 1.1 }}
           >
               <span
@@ -311,6 +331,9 @@ export default function Home() {
           <motion.a 
             href="/" 
             className="relative inline-block text-lg group"
+            initial={{ opacity: 0 }}
+            animate={stayUpToDateInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 1, delay: stayUpToDateInView ? 0.9 : 0 }}
             whileHover={{ scale: 1.1 }}
           >
               <span
