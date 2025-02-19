@@ -15,9 +15,11 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@supabase/supabase-js": "^2.48.1",
     "clsx": "^2.1.1",
+    "motion": "^12.4.3",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.15.1"
   },
   "devDependencies": {
     "postcss": "^8",
