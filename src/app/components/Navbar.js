@@ -11,7 +11,7 @@ const Navbar = () => {
           <img src="/logo.png" alt="Logo" className="navbar-logo" />
         </a>
       </div>
-      <div className={`navbar-menu pl-0 p-6 md:p-0`}>
+      <div className={`navbar-menu pl-0 p-6 md:p-0 mr-6`}>
         <a href="/" className="transition-colors duration-300 ease-in-out">Home</a>
         <a href="/about" className="transition-colors duration-300 ease-in-out">About</a>
         <a href="/events" className="transition-colors duration-300 ease-in-out min-w-[fit-content]">Past Events</a>
