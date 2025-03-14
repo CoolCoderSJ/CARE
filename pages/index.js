@@ -118,7 +118,10 @@ export default function Home() {
           <Button 
             link="/" 
             text="Join" 
-            className="bg-white hover:bg-color-100 text-black px-8 py-4 text-xl font-bold rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-110 hover:shadow-xl border-2 border-color-600" 
+            className="bg-white hover:bg-color-100 px-8 py-4 text-xl font-bold rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-110 hover:shadow-xl border-2 border-color-600" 
+            style={{
+              color: "black"
+            }}
           />
         </motion.div>
       </motion.main>

@@ -31,7 +31,6 @@
 }
 
 .navbar-menu a {
-  color: white;
   padding: 1rem;
   text-decoration: none;
   display: inline-block;
@@ -66,4 +65,8 @@
 nav.bg-color-400 {
   background-color: rgba(29, 29, 31, 0.95);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled a {
+  color: white;
 }
