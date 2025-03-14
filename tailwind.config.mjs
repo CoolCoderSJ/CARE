@@ -25,7 +25,19 @@ export default {
 
         "purple": "var(--purple)",
       },
+      transitionProperty: {
+        'width': 'width',
+        'height': 'height',
+      }
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      width: ['group-hover'],
+      opacity: ['group-hover'],
+      scale: ['group-hover'],
+      textColor: ['group-hover'],
+    }
+  }
 };

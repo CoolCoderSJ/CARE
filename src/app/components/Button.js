@@ -1,17 +1,55 @@
-export default function Button({ link, text, className="", style={}, showBack=true, icon=null }) {
-    return (
-        <a href={link} className="relative inline-block text-lg group">
-            <span
-            className={`relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-color-700 rounded-lg group-hover:text-white ${className}`}
-            style={style}
-            >
-                <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-                <span className={`absolute left-0 w-72 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-color-700 group-hover:-rotate-180 ease`}></span>
-                <span className="relative flex items-center gap-2">{icon} {text}</span>
-            </span>
-            {showBack &&
-            <span className={`absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-color-700 rounded-lg group-hover:mb-0 group-hover:mr-0`} data-rounded="rounded-lg"></span>
-            }
-        </a>
-    );
+import Link from "next/link";
+
+export default function Button({ 
+  link, 
+  text, 
+  className = "", 
+  style = {}, 
+  variant = "primary", 
+  icon = null,
+  onClick = null
+}) {
+  // Define the base button classes - balanced size between too tall and too short
+  const baseClasses = "group relative inline-flex items-center justify-center px-4 py-2.5 overflow-hidden font-medium rounded-md text-sm transition-all duration-300";
+  
+  // Define variant specific classes
+  const variants = {
+    primary: "text-white bg-color-700 shadow-md hover:shadow-lg",
+    secondary: "text-gray-800 bg-gray-100 border border-gray-300",
+    outline: "text-color-700 bg-transparent border-2 border-color-700",
+    ghost: "text-color-700 bg-transparent hover:bg-color-50"
+  };
+  
+  // Combine all classes
+  const buttonClasses = `${baseClasses} ${variants[variant] || variants.primary} ${className}`;
+  
+  // Handle button click for non-link buttons
+  const handleClick = (e) => {
+    if (!link && onClick) {
+      onClick(e);
+    }
+  };
+  
+  return (
+    <Link href={link || "#"}> 
+      <div 
+        onClick={handleClick}
+        className={buttonClasses}
+        style={style}
+      >
+        {/* Cool spotlight hover effect */}
+        <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out opacity-0 bg-gradient-to-br from-white via-transparent to-transparent group-hover:opacity-10 blur-sm"></span>
+        <span className="absolute inset-0 w-0 h-full transition-all duration-300 ease-out bg-gradient-to-r from-color-600 to-color-800 group-hover:w-full opacity-0 group-hover:opacity-80"></span>
+        
+        {/* Button content */}
+        <span className="relative flex items-center gap-2 transition-colors duration-300 ease-in-out group-hover:text-white">
+          {icon && <span className="transition-transform duration-300 ease-in-out group-hover:scale-110">{icon}</span>}
+          {text}
+        </span>
+        
+        {/* Bottom shine effect */}
+        <span className="absolute bottom-0 right-0 h-0.5 w-0 bg-color-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      </div>
+    </Link>
+  );
 }

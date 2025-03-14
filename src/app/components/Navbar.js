@@ -1,11 +1,36 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Change navbar opacity when scrolled more than 50px
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Add event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-color-400 navbar sticky top-0 z-50">
+    <nav className={`navbar transition-all duration-300 w-full ${
+      scrolled 
+        ? "bg-color-400 sticky top-0" 
+        : "bg-transparent fixed top-0 left-0"
+    } z-50`}>
       <div className="navbar-brand justify-between items-center px-4 w-full hidden md:flex">
         <a href="/" className='block' style={{ margin: "1rem 0" }}>
           <img src="/logo.png" alt="Logo" className="navbar-logo" />
