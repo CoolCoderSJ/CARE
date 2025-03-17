@@ -164,16 +164,15 @@ const Branches = () => {
           className="relative bg-gradient-to-r from-green-600 to-emerald-500 p-12 rounded-2xl text-center text-white max-w-5xl mx-auto overflow-hidden"
         >
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold mb-6">Join Our National Movement</h2>
+            <h2 className="text-3xl font-bold mb-6">Join Our Global Movement</h2>
             <p className="mb-8 text-lg max-w-2xl mx-auto">
               Each CARE branch focuses on serving local community needs while supporting our broader mission.
-              Explore branches to find opportunities near you.
+              No branch near you? Start your own and make a difference in your community.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button 
                 text="Start a Branch" 
                 onClick={() => window.location.href = "/start"} 
-                className="bg-white text-green-700 hover:bg-green-50 text-black"
               />
             </div>
           </div>

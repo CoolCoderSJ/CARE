@@ -88,7 +88,7 @@ export default function Home() {
         transition={{ duration: 1, delay: mainInView ? 0.5 : 0 }}
       >
         <motion.h1 
-          className="w-full text-[4.5rem] md:text-[10rem] mb-0 font-semibold text-color-900 --font-fredoka" 
+          className="w-full text-[4.5rem] md:text-[10rem] mb-0 font-semibold text-color-900 --font-fredoka-old" 
           style={{ lineHeight: 1 }}
           initial={{ y: -50 }}
           animate={{ y: 0 }}
@@ -126,7 +126,7 @@ export default function Home() {
               {features.map((tab, index) => (
                 <motion.button
                   key={tab}
-                  className={`--font-fredoka font-bold text-4xl md:text-6xl text-color-900 mb-4 w-full py-3 px-4 text-right u ${
+                  className={`--font-fredoka-old font-bold text-4xl md:text-6xl text-color-900 mb-4 w-full py-3 px-4 text-right u ${
                     activeTab === tab ? "underline-no-color" : ""
                   }`}
                   onClick={() => setActiveTab(tab)}
@@ -219,7 +219,7 @@ export default function Home() {
         className="text-center flex gap-8 justify-center items-center min-h-[100vh] mt-24 pt-8 relative"
       >
           <motion.h1 
-            className="--font-fredoka col-span-3 font-bold text-[7rem] leading-none text-color-300 md:text-color-800 bg-[rgba(0,0,0,0.6)] md:bg-[transparent] pb-8 mb-8 z-10 w-[fit-content] p-4 rounded-xl"
+            className="--font-fredoka-old col-span-3 font-bold text-[7rem] leading-none text-color-300 md:text-color-800 bg-[rgba(0,0,0,0.6)] md:bg-[transparent] pb-8 mb-8 z-10 w-[fit-content] p-4 rounded-xl"
             initial={{ scale: 0.8 }}
             animate={eventsInView ? { scale: 1 } : { scale: 0.8 }}
             transition={{ duration: 1, delay: eventsInView ? 0.5 : 0 }}
@@ -252,7 +252,7 @@ export default function Home() {
         animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, delay: numbersInView ? 0.5 : 0 }}
       >
-        <h1 className="--font-fredoka col-span-3 font-bold text-[7rem] leading-none w-full text-color-800 mb-4" style={{ transform: "rotate(-4deg)" }}>By The Numbers</h1>
+        <h1 className="--font-fredoka-old col-span-3 font-bold text-[7rem] leading-none w-full text-color-800 mb-4" style={{ transform: "rotate(-4deg)" }}>By The Numbers</h1>
         
         <motion.div 
           className="col-span-3 md:col-span-1 text-center flex flex-col items-center justify-center gap-4 bg-[url('/blob3.svg')] w-[80vw] md:w-[22vw] md:h-[22vw] h-[80vw] bg-no-repeat bg-center pb-8"
@@ -260,7 +260,7 @@ export default function Home() {
           animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1, delay: numbersInView ? 0.3 : 0 }}
         >
-          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka text-color-900">500+</h1>
+          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka-old text-color-900">500+</h1>
           <p className="ml-6 w-full text-2xl text-color-900 font-semibold">Members worldwide</p>
         </motion.div>
 
@@ -270,7 +270,7 @@ export default function Home() {
           animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1, delay: numbersInView ? 0.6 : 0 }}
         >
-          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka text-color-900">$27k+</h1>
+          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka-old text-color-900">$27k+</h1>
           <p className="ml-6 w-full text-3xl text-color-900 font-semibold">raised</p>
         </motion.div>
 
@@ -280,7 +280,7 @@ export default function Home() {
           animate={numbersInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1, delay: numbersInView ? 0.9 : 0 }}
         >
-          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka text-color-900">40+</h1>
+          <h1 className="ml-6 w-full text-[6rem] md:text-[5rem] leading-none font-bold --font-fredoka-old text-color-900">40+</h1>
           <p className="ml-6 w-full text-3xl text-color-900 font-semibold">Chapters</p>
         </motion.div>
       </motion.section>
@@ -293,7 +293,7 @@ export default function Home() {
         animate={stayUpToDateInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1, delay: stayUpToDateInView ? 0.5 : 0 }}
       >
-        <h1 className="--font-fredoka col-span-3 font-bold text-[7rem] leading-none w-full text-color-800">Stay Up To Date</h1>
+        <h1 className="--font-fredoka-old col-span-3 font-bold text-[7rem] leading-none w-full text-color-800">Stay Up To Date</h1>
         <p className="italic col-span-3 text-2xl text-gray-500 mb-4">Wait...what's that? Lebron James is saying to follow @curingwithcare everywhere?</p>
         
         <div className="flex flex-col md:flex-row gap-8">
