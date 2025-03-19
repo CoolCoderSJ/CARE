@@ -5,6 +5,7 @@ import './navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,18 +26,33 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <nav className={`navbar transition-all duration-300 w-full ${
       scrolled 
         ? "bg-color-400 sticky top-0 scrolled" 
         : "bg-transparent fixed top-0 left-0"
     } z-50`}>
-      <div className="navbar-brand justify-between items-center px-4 w-full hidden md:flex">
+      <div className="navbar-brand items-center px-4">
         <a href="/" className='block' style={{ margin: "1rem 0" }}>
           <img src="/logo.png" alt="Logo" className="navbar-logo" />
         </a>
+        <button 
+          className="navbar-toggle" 
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation menu"
+        >
+          <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
-      <div className={`navbar-menu pl-0 p-6 md:p-0 mr-6`}>
+      <div className={`navbar-menu pl-0 p-6 md:p-0 mr-6 ${mobileMenuOpen ? 'active' : ''}`}>
         <a href="/" className="transition-colors duration-300 ease-in-out">Home</a>
         <a href="/about" className="transition-colors duration-300 ease-in-out">About</a>
         <a href="/events" className="transition-colors duration-300 ease-in-out min-w-[fit-content]">Past Events</a>

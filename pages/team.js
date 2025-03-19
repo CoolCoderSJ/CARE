@@ -69,7 +69,7 @@ const Teams = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-emerald-500 mb-6 mt-24">Our Board</h1>
+          <h1 className="text-5xl font-bold text-green-500 mb-6 mt-24">Our Board</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Meet the dedicated individuals who guide our mission and work tirelessly 

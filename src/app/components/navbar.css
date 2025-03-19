@@ -5,6 +5,7 @@
   padding: 0 2rem;
   font-family: var(--font-hoss-normal);
   transition: background-color 0.3s ease-in-out;
+  flex-wrap: wrap;
 }
 
 .navbar a {
@@ -24,6 +25,7 @@
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .navbar-menu {
@@ -40,15 +42,9 @@
   color: #f1f1f1;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 0 1rem;
-  }  
-  
-  .navbar a {
-    margin: 0 .5rem;
-  }
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo {
@@ -59,6 +55,121 @@
 
 .navbar-logo:hover {
   transform: scale(1.1);
+}
+
+/* Hamburger menu icon */
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: block;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+.hamburger.open span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.open span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
+@media screen and (min-width: 769px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    width: auto;
+    justify-content: flex-start;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0 1rem;
+    align-items: stretch;
+  }
+  
+  .navbar-brand {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-menu.active {
+    max-height: 300px;
+  }
+  
+  .navbar-menu a {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar a {
+    margin: 0;
+  }
 }
 
 /* Add box shadow when scrolled for better visibility */
