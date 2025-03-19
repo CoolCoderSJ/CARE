@@ -32,6 +32,7 @@ export default function Events() {
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('all');
   const [activeBranchId, setActiveBranchId] = useState(null);
+  const [pittsburghBranchId, setPittsburghBranchId] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [lightboxSlides, setLightboxSlides] = useState([]);
@@ -65,13 +66,30 @@ export default function Events() {
           return;
         }
 
-        setBranches(branchesData);
+        // Find Pittsburgh branch
+        const pittsburghBranch = branchesData.find(branch => 
+          branch.city.toLowerCase() === 'pittsburgh');
+        
+        if (pittsburghBranch) {
+          setPittsburghBranchId(pittsburghBranch.id);
+          
+          // Reorder branches to put Pittsburgh first if it exists
+          const orderedBranches = [...branchesData];
+          const pittsburghIndex = orderedBranches.findIndex(b => b.id === pittsburghBranch.id);
+          if (pittsburghIndex > -1) {
+            const [removed] = orderedBranches.splice(pittsburghIndex, 1);
+            orderedBranches.unshift(removed);
+          }
+          
+          setBranches(orderedBranches);
+        } else {
+          setBranches(branchesData);
+        }
+        
         setEvents(eventsData);
         
-        // Set first branch as active if there are branches
-        if (branchesData.length > 0) {
-          setActiveBranchId(null); // Start with 'all' view
-        }
+        // Keep "All Branches" as default view
+        setActiveBranchId(null);
       } catch (e) {
         console.error("Unexpected error:", e);
         setError("An unexpected error occurred");
@@ -158,6 +176,7 @@ export default function Events() {
                     }`}
                   >
                     {branch.city}
+                    {branch.id === pittsburghBranchId && <span className="ml-1 text-green-600">★</span>}
                   </button>
                 ))}
               </div>
@@ -199,6 +218,8 @@ export default function Events() {
                   filteredBranches.map(branch => {
                     const branchEvents = eventsByBranch[branch.id] || [];
                     if (branchEvents.length === 0) return null;
+                    
+                    const isPittsburgh = branch.id === pittsburghBranchId;
 
                     return (
                       <motion.section 
@@ -207,10 +228,10 @@ export default function Events() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="mb-16"
+                        className={`mb-16`}
                       >
-                        <h2 className="text-3xl font-bold text-gray-800 mb-8 pb-3 border-b-2 border-gray-200">
-                          {branch.city} Events
+                        <h2 className={`text-3xl font-bold mb-8 pb-3 border-b-2`}>
+                          {branch.city}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                           {branchEvents.map(event => (
@@ -218,7 +239,8 @@ export default function Events() {
                               key={event.id} 
                               event={event} 
                               branchData={branch}
-                              openGlobalLightbox={openGlobalLightbox} 
+                              openGlobalLightbox={openGlobalLightbox}
+                              isPittsburgh={false}
                             />
                           ))}
                         </div>
@@ -266,7 +288,7 @@ export default function Events() {
   );
 }
 
-function EventCard({ event, branchData, openGlobalLightbox }) {
+function EventCard({ event, branchData, openGlobalLightbox, isPittsburgh }) {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -283,7 +305,7 @@ function EventCard({ event, branchData, openGlobalLightbox }) {
         const { data, error } = await supabase
           .storage
           .from('images')
-          .list(event.images_folder, {
+          .list("events/" + event.images_folder, {
             sortBy: { column: 'name', order: 'asc' },
           });
 
@@ -316,7 +338,7 @@ function EventCard({ event, branchData, openGlobalLightbox }) {
   const getImageUrl = (path) => {
     const { data } = supabase.storage
       .from('images')
-      .getPublicUrl(`${event.images_folder}/${path}`);
+      .getPublicUrl(`${"events/" + event.images_folder}/${path}`);
     return data.publicUrl;
   };
 
@@ -335,10 +357,13 @@ function EventCard({ event, branchData, openGlobalLightbox }) {
     <motion.div 
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-xl overflow-hidden shadow-lg"
+      className={`bg-white rounded-xl overflow-hidden shadow-lg 
+        ${isPittsburgh ? 'ring-2 ring-green-400 ring-offset-2' : ''}`}
     >
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-gray-800 mb-3">{event.title}</h3>
+        <h3 className={`text-2xl font-bold mb-3 ${isPittsburgh ? 'text-green-700' : 'text-gray-800'}`}>
+          {event.title}
+        </h3>
         {event.description && (
           <p className="text-gray-600 mb-4 line-clamp-2">{event.description}</p>
         )}
