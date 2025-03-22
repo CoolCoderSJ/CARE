@@ -14,11 +14,12 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const Teams = () => {
   const [boardMembers, setBoardMembers] = useState([]);
   const [researchMembers, setResearchMembers] = useState([]);
+  const [interns, setInterns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
   
-  // Fetch board members from Supabase
+  // Fetch team members from Supabase
   useEffect(() => {
     const fetchTeamMembers = async () => {
       try {
@@ -36,6 +37,13 @@ const Teams = () => {
           .select('*')
           .eq('category', 'research')
           .order('name', { ascending: true });
+          
+        // Fetch interns
+        const { data: internsData, error: internsError } = await supabase
+          .from('team_members')
+          .select('*')
+          .eq('category', 'intern')
+          .order('name', { ascending: true });
         
         if (boardError) {
           console.error("Error fetching board members:", boardError);
@@ -43,9 +51,13 @@ const Teams = () => {
         } else if (researchError) {
           console.error("Error fetching research members:", researchError);
           setError("Failed to load research members");
+        } else if (internsError) {
+          console.error("Error fetching interns:", internsError);
+          setError("Failed to load interns");
         } else {
           setBoardMembers(boardData || []);
           setResearchMembers(researchData || []);
+          setInterns(internsData || []);
         }
       } catch (e) {
         console.error("Unexpected error:", e);
@@ -251,6 +263,51 @@ const Teams = () => {
                   </motion.div>
                 ))}
               </motion.div>
+            </div>
+          </motion.section>
+        )}
+        
+        {/* Interns Section */}
+        {!loading && !error && interns.length > 0 && (
+          <motion.section 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-32 mb-20"
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-green-500 mb-6">Our Interns</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-400 mx-auto mb-6"></div>
+            </div>
+            
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                {interns.map((intern, index) => (
+                  <motion.div
+                    key={intern.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.08 }}
+                    whileHover={{ y: -10 }}
+                    className="flex flex-col items-center"
+                  >
+                    <div className="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 bg-gray-100 border-4 border-white">
+                      <img 
+                        src={intern.image || "/team-placeholder.png"} 
+                        alt={intern.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = "/team-placeholder.png";
+                        }}
+                      />
+                    </div>
+                    <h3 className="text-center font-medium text-lg text-gray-800">{intern.name}</h3>
+                    {intern.university && (
+                      <p className="text-sm text-gray-500 text-center mt-1">{intern.university}</p>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.section>
         )}
