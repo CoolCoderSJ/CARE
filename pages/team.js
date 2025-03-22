@@ -13,25 +13,39 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Teams = () => {
   const [boardMembers, setBoardMembers] = useState([]);
+  const [researchMembers, setResearchMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
   
   // Fetch board members from Supabase
   useEffect(() => {
-    const fetchBoardMembers = async () => {
+    const fetchTeamMembers = async () => {
       try {
         setLoading(true);
-        const { data, error } = await supabase
+        // Fetch board members
+        const { data: boardData, error: boardError } = await supabase
           .from('team_members')
           .select('*')
+          .eq('category', 'board')
           .order('order_rank', { ascending: true });
         
-        if (error) {
-          console.error("Error fetching team members:", error);
+        // Fetch research & design members
+        const { data: researchData, error: researchError } = await supabase
+          .from('team_members')
+          .select('*')
+          .eq('category', 'research')
+          .order('name', { ascending: true });
+        
+        if (boardError) {
+          console.error("Error fetching board members:", boardError);
           setError("Failed to load board members");
+        } else if (researchError) {
+          console.error("Error fetching research members:", researchError);
+          setError("Failed to load research members");
         } else {
-          setBoardMembers(data || []);
+          setBoardMembers(boardData || []);
+          setResearchMembers(researchData || []);
         }
       } catch (e) {
         console.error("Unexpected error:", e);
@@ -41,7 +55,7 @@ const Teams = () => {
       }
     };
 
-    fetchBoardMembers();
+    fetchTeamMembers();
   }, []);
 
   // Function to handle expanding/collapsing description
@@ -53,6 +67,12 @@ const Teams = () => {
   const truncateText = (text, maxLength = 100) => {
     if (!text || text.length <= maxLength) return text;
     return text.slice(0, maxLength) + '...';
+  };
+
+  // Function to get random color
+  const getRandomColor = (index) => {
+    const colors = ['green', 'emerald', 'teal', 'sky', 'blue', 'indigo'];
+    return colors[index % colors.length];
   };
 
   return (
@@ -184,6 +204,56 @@ const Teams = () => {
             </div>
           )}
         </section>
+        
+        {/* Research & Design Team Section */}
+        {!loading && !error && researchMembers.length > 0 && (
+          <motion.section 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-32 mb-20"
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-green-500 mb-6">Research & Design Team</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-400 mx-auto mb-6"></div>
+            </div>
+            
+            <div className="max-w-5xl mx-auto">
+              <motion.div 
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                initial="hidden"
+                animate="show"
+              >
+                {researchMembers.map((member, index) => (
+                  <motion.div
+                    key={member.id}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      show: { opacity: 1, y: 0 }
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    className={`py-6 px-3 rounded-lg shadow-sm
+                               bg-gradient-to-br from-${getRandomColor(index)}-50 to-${getRandomColor(index)}-100
+                               border border-${getRandomColor(index)}-200`}
+                  >
+                    <span className="font-medium text-gray-800 block">
+                      {member.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.section>
+        )}
       </main>
     </div>
   );
