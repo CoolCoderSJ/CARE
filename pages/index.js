@@ -121,7 +121,7 @@ export default function Home() {
         >
           <div className="overflow-hidden">
             <motion.div 
-              className="flex flex-wrap w-full text-[4.5rem] md:text-[10rem] mb-0 font-semibold text-color-900 --font-fredoka text-center w-full"
+              className="flex flex-wrap w-full text-[3.3rem] md:text-[10rem] mb-0 font-semibold text-color-900 --font-fredoka text-center w-full"
               style={{ lineHeight: 0.9, willChange: "transform" }}
             >
               {heroText.split('').map((letter, index) => (
@@ -142,7 +142,7 @@ export default function Home() {
           </div>
           
           <motion.p 
-            className="w-full mt-8 md:mt-12 text-2xl md:text-3xl leading-relaxed"
+            className="w-full mt-8 md:mt-12 text-2xl md:text-3xl leading-relaxed text-left"
             variants={slideUp}
           >
             <i>Dedicated to the advancement of <br className="md:hidden" />
@@ -172,7 +172,7 @@ export default function Home() {
               aria-label="Donate to CARE"
             />
             <Button 
-              link="/" 
+              link="https://forms.gle/S2WH6htwdTTHK2gy9" 
               text="Join Our Cause" 
               className="bg-white hover:bg-color-100 px-8 py-4 text-xl font-bold rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl border-2 border-color-600 flex items-center justify-center" 
               style={{
@@ -197,7 +197,7 @@ export default function Home() {
               {features.map((tab, index) => (
                 <motion.button
                   key={tab}
-                  className={`--font-fredoka font-bold text-3xl md:text-5xl text-color-900 mb-4 w-full py-3 px-4 text-left md:text-right relative overflow-hidden ${
+                  className={`--font-fredoka font-bold text-[1.4rem] md:text-5xl text-color-900 mb-4 w-full py-3 px-4 text-left md:text-right relative overflow-hidden ${
                     activeTab === tab ? "text-color-600" : ""
                   }`}
                   onClick={() => setActiveTab(tab)}
@@ -275,7 +275,7 @@ export default function Home() {
                         >
                           <h1 className="text-2xl md:text-3xl text-color-900 font-semibold text-left">Check out the CARE research competition!</h1>
                           <Button 
-                            link="/" 
+                            link="/research-competition" 
                             text="See More" 
                           />
                         </motion.div>
@@ -432,9 +432,9 @@ export default function Home() {
             
             <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8">
               {[
-                { icon: faInstagram, name: '@curingwithcare', color: '#dd2a7b', url: '/' },
-                { icon: faLinkedin, name: 'curingwithCARE', color: '#0a66c2', url: '/' },
-                { icon: faFacebook, name: 'curingwithcare', color: '#0861f2', url: '/' }
+                { icon: faInstagram, name: '@curingwithcare', color: '#dd2a7b', url: 'https://www.instagram.com/curingwithcare/' },
+                { icon: faLinkedin, name: 'curingwithCARE', color: '#0a66c2', url: 'https://www.linkedin.com/company/curingwithcare' },
+                { icon: faFacebook, name: 'curingwithcare', color: '#0861f2', url: 'https://www.facebook.com/people/curingwithcare/61551833566559/' }
               ].map((social, index) => (
                 <motion.a 
                   key={social.name}

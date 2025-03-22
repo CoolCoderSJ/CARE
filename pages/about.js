@@ -90,7 +90,7 @@ const About = () => {
           <h2 className="text-3xl font-bold mb-6 text-center">Join Our Mission</h2>
           <p className="text-center text-lg mb-8">Together, we can make a difference in the lives of those affected by cancer.</p>
           <div className="flex justify-center">
-            <Button text="Get Involved Today" link="/get-involved" className="text-lg py-3 px-8" />
+            <Button text="Get Involved Today" link="https://forms.gle/S2WH6htwdTTHK2gy9" className="text-lg py-3 px-8" />
           </div>
         </div>
       </section>

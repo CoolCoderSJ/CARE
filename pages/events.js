@@ -12,6 +12,7 @@ import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails"; // Fixed import
 import "yet-another-react-lightbox/plugins/thumbnails.css"; // Added proper CSS import
+import Button from '@/app/components/Button';
 
 // Initialize Supabase client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -149,7 +150,22 @@ export default function Events() {
             Explore the events we've hosted across our branches. Each event showcases our commitment to making a positive impact in communities worldwide.
           </p>
         </motion.section>
-        
+        <motion.div 
+            key="research"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center my-8 bg-gradient-to-r from-color-400 to-color-300 p-6 md:p-10 rounded-lg shadow-xl"
+            whileHover={{ scale: 1.02 }}
+        >
+            <h1 className="text-2xl md:text-3xl text-color-900 font-semibold text-left">Check out the CARE research competition!</h1>
+            <Button 
+            link="/research-competition" 
+            text="See More" 
+            />
+        </motion.div>
+                              
         {/* Branch Navigation */}
         {!loading && !error && branches.length > 0 && (
           <div className="mb-12 overflow-x-auto pb-2">
